@@ -17,18 +17,15 @@ namespace LoopPerformances
             
             var newCheck = new NewCheck();
 
-            bool i = newCheck.LoopChecks();
-            var benchmark = BenchmarkRunner.Run<NewCheck>().BenchmarksCases;
-
-            var x = benchmark.ToString();
-            
+            newCheck.LoopChecks();
+            var benchmark = BenchmarkRunner.Run<NewCheck>();
         }
     }
 
     public class NewCheck
     {
         [Benchmark]
-        public bool LoopChecks()
+        public void LoopChecks()
         {
             var watch = new Stopwatch();
             int sum = 0;
@@ -53,8 +50,7 @@ namespace LoopPerformances
             Console.WriteLine($"Time taken by ForEach loop is {watch.ElapsedTicks}");
 
             watch.Stop();
-            return true;
-
+            
         }
 
 
