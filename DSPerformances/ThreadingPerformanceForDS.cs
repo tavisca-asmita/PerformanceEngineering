@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using BenchmarkDotNet;
+using BenchmarkDotNet.Attributes;
 
 namespace DSPerformances
 {
+    
     public class ThreadingPerformanceForDS
     {
+        //public BenchmarkDotNet.Reports.BenchmarkReport benchmark;
+
+        [Benchmark]
         public static void Main(string[] args)
         {
-
+            
             Thread thread1 = new Thread(Add); 
 
             Thread thread2 = new Thread(Addition);
@@ -20,6 +26,7 @@ namespace DSPerformances
             //thread2.Join();
         }
 
+        [Benchmark]
         public static void Add()
         {
             var watch = new Stopwatch();
@@ -31,6 +38,8 @@ namespace DSPerformances
             Console.WriteLine($"Time in miliseconds taken by Add {watch.ElapsedMilliseconds}");
 
         }
+
+        [Benchmark]
         public static void Addition()
         {
             var watch = new Stopwatch();

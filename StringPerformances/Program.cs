@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StringPerformances
 {
-    /*class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -35,5 +35,5 @@ namespace StringPerformances
             Console.WriteLine($"Time taken by string builder {watch.ElapsedTicks}");
             watch.Stop();
         }
-    }*/
+    }
 }
